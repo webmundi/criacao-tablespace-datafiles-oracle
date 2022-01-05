@@ -1,5 +1,7 @@
 # criacao-tablespace-datafiles-oracle
-Scripts para criar e gerenciar Tablespaces e Datafiles no Oracle
+Scripts PL SQL utilizados na Video aula e Post do WebMundi.com
+
+Objetivo: Criar e gerenciar Tablespaces e Datafiles no Oracle
 
 Video Aula : https://youtu.be/JsaBe2V-6Vs
 
