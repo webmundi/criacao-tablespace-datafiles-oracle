@@ -1,4 +1,11 @@
--- Descobrindo Tablespaces, Datafiles com espaÁo ocupado x livre no Oracle Database
+/*
+Scripts PL SQL utilizados na Video aula e Post do Canal WebMundi.com : Youtube
+Enderecos:
+Cria√ß√£o de Tablespaces e Datafiles no Oracle
+https://www.webmundi.com/banco-de-dados/oracle/criacao-de-tablespaces-e-datafiles-no-oracle/
+*/
+
+-- Descobrindo Tablespaces, Datafiles com espa√ßo ocupado x livre no Oracle Database
 SELECT df.tablespace_name "Tablespace",
   totalusedspace "Used MB",
   (df.totalspace - tu.totalusedspace) "Free MB",
@@ -22,7 +29,7 @@ WHERE df.tablespace_name = tu.tablespace_name;
 SELECT  FILE_NAME, BLOCKS, TABLESPACE_NAME FROM DBA_DATA_FILES;
 
 --------------------------------------------------------------------
--- Criando Tablespace e Datafile para AplicaÁ„o / Usu·rio
+-- Criando Tablespace e Datafile para Aplica√ß√£o / Usu√°rio
 -- Primeira Tablespace e Datafile
 CREATE TABLESPACE 
 TBS_WEBMUNDI 
@@ -33,7 +40,7 @@ CREATE TABLESPACE
 TBS_WEBMUNDI2 
 DATAFILE 'TBS_WEBMUNDI_DATA2.dbf' SIZE 1M ONLINE;
 
--- CriaÁ„o de tabela TB_CLIENTE na Tablespace TBS_WEBMUNDI
+-- Cria√ß√£o de tabela TB_CLIENTE na Tablespace TBS_WEBMUNDI
 CREATE TABLE TB_CLIENTE
 (
 CODIGO NUMBER(8),
@@ -59,7 +66,7 @@ ALTER TABLE TB_CLIENTE
 MOVE TABLESPACE 
 TBS_WEBMUNDI2;
 
--- Checando a mudanÁa de Tablespace
+-- Checando a mudan√ßa de Tablespace
 SELECT  TABLE_NAME, TABLESPACE_NAME FROM  DBA_TABLES 
 WHERE TABLE_NAME = 'TB_CLIENTE';
 
